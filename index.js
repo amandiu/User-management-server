@@ -1,31 +1,28 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 const cors = require('cors');
 
-
-
-// MiddleWare
-app.use(cors());
-
-const Users = [
-    { id: '1', name: 'Amanullah', email: 'mcaman@gmail.com', paragraph: 'Tor moto manusher sathe amon e howa uchit,Tui ekta madercode,Bainchod, and amon ja kichu ace sob tui.' },
-    { id: '2', name: 'Prity', email: 'inocentgirl@gmail.com' },
-    { id: '3', name: 'Sultana', email: 'goodgirl@gmail.com' },
-    { id: '4', name: 'layla', email: 'knovulnaitar@gmail.com' },
-    { id: '5', name: 'Aman', email: 'madercodtui@gmail.com' }
+const users = [
+    { id: '1', email: 'aman@gmail.com', name: 'Aman' },
+    { id: '2', email: 'akon@gmail.com', name: 'Akon' },
+    { id: '3', email: 'sultana@gmail.com', name: 'Sultana' },
+    { id: '4', email: 'layla@gmail.com', name: 'Layla' },
+    { id: '5', email: 'prity@gmail.com', name: 'Prity' },
 ]
 
 
-
+// Using middleware 
+app.use(cors());
 app.get('/', (req, res) => {
-    res.send('Welcome to my fast Server')
+    res.send('Welcome to my  fast server');
 })
 
 app.get('/users', (req, res) => {
-    res.send(Users)
+    res.send(users);
 })
 
-app.listen(port, (req, res) => {
-    console.log(`My First server is running on port ${port}`)
-});
+
+app.listen(port, () => {
+    console.log(`This is my fist servre and its running on port:${port}`);
+})
